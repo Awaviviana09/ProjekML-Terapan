@@ -1,6 +1,6 @@
 # Laporan Proyek Machine Learning - Zahwa Genoveva
 ---
-## Domain Proyek
+## Domain Proyek 
 ---
 Domain proyek yang dipilih dalam proyek _machine learning_ ini adalah mengenai Pertanian dengan judul proyek "Prediksi kualitas buah apel".
 
