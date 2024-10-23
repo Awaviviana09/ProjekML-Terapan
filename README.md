@@ -197,3 +197,77 @@ Bagian ini menunjukkan proses eksplorasi data yang menyeluruh, mulai dari penang
 ## Data Preparation
 ---
 Berikut adalah tahapan-tahapan dalam melakukan pra-pemrosesan data:
+
+## Train Test Split
+
+Dataset akan dibagi menjadi data latih (train) dan data uji (test). Tujuan langkah ini sebelum proses lainnya adalah agar tidak mengotori data uji dengan informasi yang didapat dari data latih. Contoh pada proses standarisasi dimana jika belum di bagi menjadi data latih dan uji, maka keduanya akan terkena transformasi data yang menggunakan informasi (mean dan standard deviation) dari gabungan data latih dan uji. Hal ini berpotensi menimbulkan kebocoran data (data leakage). Oleh karena itu langkah awal sebelum melakukan tranformasi data adalah membagi dataset terlebih dahulu [3].
+
+Pada kasus ini akan menggunakan proporsi pembagian sebesar 90:10 dengan fungsi train_test_split dari sklearn dengan output sebagai berikut.
+
+Tabel 4. Jumlah Data Latih dan Uji
+
+Jumlah Total Data | Jumlah Data Latih | Jumlah Data Uji
+----------------- | ----------------- | ---------------
+  4000 | 3200 | 800
+
+## Standarisasi
+Proses standarisasi bertujuan untuk membuat fitur data menjadi bentuk yang lebih mudah diolah oleh algoritma. Pada kasus ini akan digunakan metode StandarScaler() dari library Scikitlearn.
+
+StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean kemudian membaginya dengan standar deviasi untuk menggeser distribusi. StandarScaler menghasilkan distribusi deviasi sama dengan 1 dan mean sama dengan 0.
+
+Berikut output yang dihasilkan dari metode StandardScaler dengan menggunakan fungsi describe():
+
+Tabel 5. Hasil Proses Standarisasi Pada Setiap Fitur Pada Data Latih
+### 2. Standarisasi (Normalisasi Fitur)
+
+Pada langkah ini, kita akan menstandarisasi fitur dengan menggunakan `StandardScaler`, sehingga setiap fitur memiliki rata-rata 0 dan deviasi standar 1.
+
+| Deskripsi                             | Keterangan                              |
+|---------------------------------------|-----------------------------------------|
+| Metode Standarisasi                   | StandardScaler                          |
+| Rata-rata fitur setelah standarisasi   | 0                                       |
+| Deviasi standar fitur setelah standarisasi | 1                                       |
+
+### 3. Normalisasi
+
+Selain standarisasi, kita juga menerapkan normalisasi menggunakan `MinMaxScaler`, yang mengubah skala fitur ke dalam rentang [0, 1].
+
+#### Hasil Normalisasi:
+
+|     Size     |    Weight    |  Sweetness  |  Crunchiness |  Juiciness   |  Ripeness   |   Acidity   |
+|--------------|--------------|-------------|--------------|--------------|-------------|-------------|
+|  1.027890    | -1.001988    |  0.084334   |  0.393453    |  0.271185    |  1.108047   | -0.627140   |
+|  0.173070    |  0.852012    | -0.323051   | -0.354721    | -0.106767    |  0.265260   | -1.075288   |
+| -1.041694    | -1.165875    | -0.192792   | -1.034102    | -0.324381    |  2.470441   | -0.901013   |
+| -0.456591    |  0.285175    |  1.948610   | -0.588818    |  1.024831    | -0.509328   | -0.057273   |
+| -0.816011    | -0.146890    | -0.177478   |  2.012460    |  0.249208    |  0.139939   | -0.030334   |
+
+### 4. Perbandingan Nilai Asli dan Nilai Normalisasi
+
+| Original Size | Original Weight | Original Sweetness | Original Crunchiness | Original Juiciness | Original Ripeness | Original Acidity | Normalized Size | Normalized Weight | Normalized Sweetness | Normalized Crunchiness | Normalized Juiciness | Normalized Ripeness | Normalized Acidity |
+|---------------|------------------|---------------------|----------------------|--------------------|--------------------|-------------------|------------------|---------------------|----------------------|-----------------------|---------------------|---------------------|---------------------|
+|  1.027890     | -1.001988        |  0.084334           |  0.393453            |  0.271185          |  1.108047          | -0.627140         |  1.027890        | -1.001988           |  0.084334            |  0.393453             |  0.271185           |  1.108047           | -0.627140           |
+|  0.173070     |  0.852012        | -0.323051           | -0.354721            | -0.106767          |  0.265260          | -1.075288         |  0.173070        |  0.852012           | -0.323051            | -0.354721             | -0.106767           |  0.265260           | -1.075288           |
+| -1.041694     | -1.165875        | -0.192792           | -1.034102            | -0.324381          |  2.470441          | -0.901013         | -1.041694        | -1.165875           | -0.192792            | -1.034102            | -0.324381           |  2.470441           | -0.901013           |
+| -0.456591     |  0.285175        |  1.948610           | -0.588818            |  1.024831          | -0.509328          | -0.057273         | -0.456591        |  0.285175           |  1.948610            | -0.588818            |  1.024831           | -0.509328           | -0.057273           |
+| -0.816011     | -0.146890        | -0.177478           |  2.012460            |  0.249208          |  0.139939          | -0.030334         | -0.816011        | -0.146890           | -0.177478            |  2.012460            |  0.249208           |  0.139939           | -0.030334           |
+
+### 5. Data setelah Normalisasi
+
+|     Size     |    Weight    |  Sweetness  |  Crunchiness |  Juiciness   |  Ripeness   |   Acidity   |
+|--------------|--------------|-------------|--------------|--------------|-------------|-------------|
+|  0.63683187  |  0.35305009  |  0.49645027 |  0.55451442  |  0.52664718  |  0.64304288 |  0.40105263 |
+|  0.51523605  |  0.58231483  |  0.43646357 |  0.47743345  |  0.47180237  |  0.52263894 |  0.33565786 |
+|  0.34243895  |  0.33278396  |  0.45564396 |  0.40744007  |  0.44022423  |  0.83767975 |  0.36108855 |
+|  0.42566827  |  0.51222009  |  0.77096161 |  0.45331553  |  0.63600913  |  0.41197840 |  0.48420897 |
+|  0.37454175  |  0.45879104  |  0.45789899 |  0.72131318  |  0.52345814  |  0.50473515 |  0.48814003 |
+
+
+Normalisasi merupakan proses penting dalam tahap persiapan data, yang bertujuan untuk mengubah skala fitur agar berada dalam rentang yang sama. Dalam konteks dataset ini, normalisasi membantu memastikan bahwa setiap atribut, seperti Size, Weight, Sweetness, Crunchiness, Juiciness, Ripeness, dan Acidity, memiliki kontribusi yang setara saat model belajar. Dengan menghilangkan perbedaan skala, model dapat lebih efektif dalam menemukan pola dalam data, mengurangi bias, dan meningkatkan performa prediksi. Hasil normalisasi menunjukkan bahwa semua nilai fitur kini terdistribusi dengan lebih merata, mendukung proses pembelajaran mesin yang lebih stabil dan akurat.
+
+
+
+# Modeling
+Pada tahap ini, akan menggunakan tiga algoritma untuk regresi. Kemudian, akan dilakukan evaluasi performa masing-masing algoritma dan menetukan algoritma mana yang memberikan hasil prediksi terbaik. Ketiga algoritma yang akan digunakan, antara lain:
+
+1. K-Nearest Neighbor
