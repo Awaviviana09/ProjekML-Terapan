@@ -66,24 +66,134 @@ Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini diantaranya :
 Informasi dataset dapat dilihat pada tabel dibawah ini :
 Jenis | Keterangan
 --- | ---
-Sumber | [Kaggle Dataset : Stroke Prediction Dataset](https://www.kaggle.com/fedesoriano/stroke-prediction-dataset)
+Sumber | [Kaggle Dataset : Apple Quality Dataset](https://www.kaggle.com/datasets/nelgiriyewithana/apple-quality/data)
 Lisensi | Data files © Original Authors
-Kategori | Kesehatan, Kondisi Kesehatan, Kesehatan Masyarakat
-Jenis dan Ukuran Berkas | CSV (316.97 kB)
+Kategori | Computer Science, Education, Food, Data Visualization, Classification, Exploratory Data Analysis
+Jenis dan Ukuran Berkas | CSV (387.65 kB)
 ---
-Pada berkas yang diunduh yakni healthcare-dataset-stroke-data.csv berisi 5110 baris dan 12 kolom. Kolom-kolom tersebut terdiri dari 5 buah kolom bertipe objek dan 7 buah kolom bertipe numerik (tipe data int64). Terdapat juga kolom yang memiliki data kosong yaitu pada kolom bmi. Untuk penjelasan mengenai variabel-variable pada dataset stroke ini dapat dilihat sebagai berikut:
-* **id** merupakan parameter bernilai unique. Parameter ini tidak penting untuk dimasukkan kedalam model, oleh karena itu parameter ini di _drop_.
-* **gender** merupakan parameter untuk mengetahui jenis kelamin. Terdapat 3 nilai yaitu _male_, _female_, dan _other_.
-* **age** merupakan parameter untuk mengetahui umur. Terdapat Pada data ini nilainya berada pada rentang 0.080-82 tahun.
-* **hypertension** merupakan parameter yang menyatakan apakah pasien memiliki darah tinggi atau tidak. Nilai 0 menyatakan bahwa pasien tidak memiliki darah tinggi dan Nilai 1 menyatakan bahwa pasien memiliki darah tinggi.
-* **heart_disease** merupakan parameter yang menyatakan apakah pasien memiliki penyakit jantung atau tidak. Nilai 0 menyatakan bahwa pasien tidak memiliki penyakit jantung dan Nilai 1 menyatakan bahwa pasien memiliki penyakit jantung.
-* **ever_married** merupakan parameter yang menyatakan apakah pasien pernah menikah atau tidak. Nilai "_Yes_" menyatakan bahwa pasien pernah menikah dan Nilai "_No_" menyatakan bahwa pasien belum pernah menikah.
-* **work_type** merupakan parameter yang menyatakan pekerja pasien. Pada data ini terdapat 5 nilai yaitu "_children_", "_Govt_jov_", "_Never_worked_", "_Private_" dan "_Self-employed_".
-* **Residence_type** merupakan parameter yang menyatakan tipe tempat tinggal pasien. Pada data ini terdapat 2 nilai yaitu "_Rural_" dan "_Urban_".
-* **avg_glucose_level** merupakan parameter yang menyatakan kadar glukosa rata-rata dalam darah pasien. Pada data ini nilainya berada di rentang 55.12-271.74 mg/dL.
-* **bmi** merupakan parameter yang menyatakan kadar glukosa rata-rata dalam darah pasien. Pada data ini nilainya berada di rentang 55.12-271.74.
-* **smoking_status** merupakan parameter yang menyatakan status merokok pada pasien. Pada data ini terdapat 4 nilai yaitu "_formerly smoked_", "_never smoked_", "_smokes_" or "_Unknown_".
-* **stroke** merupakan parameter yang Menentukan apakah pasien menderita stroke atau tidak. Terdapat 2 nilai yaitu tidak menderita stroke (nilai 0) dan menderita stroke (nilai 1).
 
-Selain itu, terdapat juga visualisasi data pada tiap kolom yang dibagi menjadi 2 tipe seperti berikut:
-* Kategorial:
+Pada tahap ini, kita akan menganalisis struktur dan karakteristik dataset yang digunakan. Dataset terdiri dari 9 kolom dan 4001 baris, dengan rincian sebagai berikut:
+
+###  1. Deskripsi Data
+   * Jumlah data: 4001 baris.
+   * Jumlah kolom: 9 kolom.
+   * Tipe data:
+      * 7 kolom numerik (float64)
+      * 2 kolom kategorikal (object)
+   * Kolom:
+      * A_id: Identifikasi unik untuk setiap apel.
+      * Size: Ukuran apel.
+      * Weight: Berat apel.
+      * Sweetness: Tingkat kemanisan apel.
+      * Crunchiness: Tingkat kekeruhan apel.
+      * Juiciness: Tingkat kejuisan apel.
+      * Ripeness: Tingkat kematangan apel.
+      * Acidity: Tingkat keasaman apel.
+      * Quality: Label kualitas apel (baik/buruk).
+   * Kondisi Data:
+      * Data tidak sepenuhnya lengkap, terdapat missing value pada kolom Acidity dan Quality.
+      * Untuk data numerik, rata-rata, standar deviasi, serta nilai minimum dan maksimum telah dihitung. Tabel statistik deskriptif dari data
+        tersebut ditampilkan di bawah.
+    * Statistik Deskriptif:
+      
+Data yang digunakan dalam pembuatan model merupakan data primer, data ini didapat dari sebuah perusahaan pertanian Amerika, yang disediakan secara publik di kaggle dengan nama datasets yaitu: _Apple Quality_
+
+| A_id | Size | Weight | Sweetness | Crunchiness | Juiciness | Ripeness | Acidity | Quality |
+| ------ | ------ |------ | ------ | ------ | ------ |------ | ------ |------ |
+| 0.0 | -3.970049 |-2.512336 | 5.346330 |-1.012009 | 1.844900 |0.329840	| -0.491590483  |good |
+| 1.0 | -1.195217 |-2.839257 | 3.664059 |1.588232 | 0.853286 | 0.867530 | -0.722809367  |good |
+| 2.0 | -0.292024 |	-1.351282 | -1.738429 | -0.342616 | 2.838636 |-0.038033	| 2.621636473  |bad |
+| 3.0 | -0.657196 |-2.271627 | 1.324874 |-0.097875 | 3.637970 |-3.413761	| 0.790723217  |good |
+| 4.0 | 1.364217 |-1.296612 | -0.384658 | -0.553006 | 3.030874 | -1.303849	| 0.501984036  |good |
+  
+
+
+### 3. Menangani Missing Values
+
+Untuk mendeteksi missing value digunakan fungsi isnull().sum() dan diperoleh: **Tabel 1. Hasil Deteksi Missing Value**
+| Variable     | Missing Value | Metode Penanganan |
+|--------------|---------------|-------------------|
+| Size         | 1             | Imputasi Mean     |
+| Weight       | 1             | Imputasi Mean     |
+| Sweetness    | 1             | Imputasi Mean     |
+| Crunchiness  | 1             | Imputasi Mean     |
+| Juiciness    | 1             | Imputasi Mean     |
+| Ripeness     | 1             | Imputasi Mean     |
+| Acidity      | 0             | Tidak ada         |
+| Quality      | 1             | Imputasi Modus    |
+
+Langkah yang diambil:
+- Missing values pada kolom numerik akan diisi menggunakan rata-rata (**mean**).
+- Missing values pada kolom kategorikal akan diimputasi menggunakan nilai yang paling sering muncul (**modus**).
+
+### 4. Menangani Outliers
+
+Untuk menangani outliers, metode **Interquartile Range (IQR)** digunakan. IQR mengidentifikasi data yang berada di luar rentang normal, yaitu di luar batas [Q1 - 1.5 * IQR, Q3 + 1.5 * IQR].
+
+**Tabel 2 Visualisasi Boxplot Sebelum dan Sesudah Metode IQR**:
+
+| Boxplot Sebelum IQR        | Boxplot Setelah IQR        |
+|----------------------------|----------------------------|
+| ![Before](https://i.postimg.cc/BQ72GNWp/sebelum.png)                | ![After](https://i.postimg.cc/X7PBPJFD/sesudah.png)                |
+
+
+### 5. Perbandingan Jumlah Data Sebelum dan Setelah Dibersihkan dari Outliers
+
+Setelah dilakukan pembersihan outliers dengan metode **IQR**, jumlah data yang tersisa dibandingkan dengan jumlah data awal adalah seperti pada **Tabel 3. Perbandingan Jumlah Data Sebelum dan Setelah Dibersihkan dari Outlier**:
+
+| Jumlah Data Sebelum  | Jumlah Data Setelah |
+|----------------------|---------------------|
+| 4001          |           3790          |
+
+
+
+
+## Univariate Analysis
+ 
+Selanjutnya, akan dilakukan proses analisis data dengan teknik Univariate EDA. Pada kasus ini semua fiturnya adalah fitur numerik dan tidak ada fitur kategorikal. Sehingga hanya perlu dilakukan analisa terhadap fitur numerik, sebagai berikut:
+
+### Analisa Fitur Numerik
+
+Untuk melihat distribusi data pada tiap fitur akan digunakan visualisasi dengan histogram sebagai berikut:
+
+![histogram](https://i.postimg.cc/CxqtBcgM/ultra.png)
+
+Dari hasil visualisasi histogram di atas, kita bisa memperoleh beberapa informasi, antara lain:
+
+Distribusi fitur quality (target) cenderung miring ke kanan (right-skewed).
+
+Karena beberapa fitur belum terdistribusi normal hal ini akan berimplikasi pada model, maka selanjutnya kita lakukan transformasi data (non-linear scaling). Namun, sebelum itu kita cek terlebih dahulu hubungan antara fitur numerik tersebut.
+
+## Multivariate Analysis
+
+### Hubungan Antara Fitur Numerik
+
+Untuk mengamati hubungan antara fitur numerik, akan digunakan fungsi pairplot(), dengan output sebagai berikut:
+
+![grafik_pairplot](https://i.postimg.cc/ncbjvz84/multi.png)
+
+Gambar 2. Visualisasi Hubungan antara Fitur Numerik dengan pairplot()
+
+Secara keseluruhan, pairplot ini membantu kita memahami kompleksitas hubungan antara berbagai karakteristik (seperti ukuran, berat, kemanisan, dsb.) dari suatu objek. Kita bisa melihat variabel mana yang saling terkait, variabel mana yang tidak, dan variabel mana yang mungkin mempengaruhi kualitas.
+
+### Korelasi antara Fitur Numerik
+
+Untuk mengevaluasi skor korelasi hubungan antara fitur numerik, akan digunakan fungsi corr() dengan output sebagai berikut.
+
+![matriks](https://i.postimg.cc/25wFtWYN/matriks.png)
+
+Gambar 3. Korelasi antara Fitur Numerik
+
+Koefisien korelasi berkisar antara -1 dan +1. Semakin dekat nilainya ke 1 atau -1, maka korelasinya semakin kuat. Sedangkan, semakin dekat nilainya ke 0 maka korelasinya semakin lemah.
+
+Berdasarkan matriks korelasi ini, kita bisa menyimpulkan bahwa kualitas suatu objek dipengaruhi oleh beberapa faktor seperti ukuran, juiciness, acidity, sweetness, dan ripeness. Objek yang lebih besar, lebih juicy, lebih asam, dan kurang manis serta kurang matang cenderung memiliki kualitas yang lebih baik.
+
+
+---
+
+Bagian ini menunjukkan proses eksplorasi data yang menyeluruh, mulai dari penanganan missing values hingga outliers, yang dilakukan sebelum melanjutkan ke tahap pemodelan machine learning.
+
+
+## Data Preparation
+---
+Berikut adalah tahapan-tahapan dalam melakukan pra-pemrosesan data:
