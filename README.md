@@ -439,8 +439,12 @@ Berdasarkan hasil pemodelan untuk prediksi kualitas buah apel menggunakan bebera
 ## Referensi
 --- 
  
-4. Support Vector Machine (SVM)
-5. Naive Bayes
-6. Decision Tree
+[1] Asmara et al. (2023). _Lung Cancer in Indonesia_._Journal of Thoracic Oncology_, 18(9), 1134-1145. Tersedia: [tautan](https://www.sciencedirect.com/science/article/pii/S1556086423006317). Diakses pada 17 September 2024.
+
+[2] Santoso, H., Chalidyanto, D., & Laksono, A. D. (2021). _The Prevalence of Cancer in Indonesia: An Ecological Analysis_. _Indian Journal of Forensic Medicine & Toxicology_, 15(3), 3170-3176. Tersedia: [tautan](https://repository.unair.ac.id/124051/5/8.%20Cover-Artikel%20The%20Prevalence%20of%20Cancer%20in%20Indonesia.pdf). Diakses pada 17 September 2024.
+
+[3] World Cancer Research Fund. (n.d). _Lung cancer statistics_. Tersedia: [tautan](https://www.wcrf.org/cancer-trends/lung-cancer-statistics/). Diakses pada 17 September 2024.
+
+[4] Kaggle. (n.d). _Lung cancer dataset_. Tersedia: [tautan](https://www.kaggle.com/datasets/thedevastator/cancer-patients-and-air-pollution-a-new-link). Diakses pada 17 September 2024.
 
 
