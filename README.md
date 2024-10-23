@@ -62,6 +62,7 @@ Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini diantaranya :
      * Kekurangan: Membutuhkan tuning hyperparameter yang rumit.
     
 ## Data Understanding
+---
 ![Image of Dataset](https://i.postimg.cc/CKJ0sBXT/Screenshot-2024-10-10-204041.png)
 Informasi dataset dapat dilihat pada tabel dibawah ini :
 Jenis | Keterangan
@@ -218,7 +219,7 @@ StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean kemu
 Berikut output yang dihasilkan dari metode StandardScaler dengan menggunakan fungsi describe():
 
 Tabel 5. Hasil Proses Standarisasi Pada Setiap Fitur Pada Data Latih
-### 2. Standarisasi (Normalisasi Fitur)
+### 1. Standarisasi (Normalisasi Fitur)
 
 Pada langkah ini, kita akan menstandarisasi fitur dengan menggunakan `StandardScaler`, sehingga setiap fitur memiliki rata-rata 0 dan deviasi standar 1.
 
@@ -228,7 +229,7 @@ Pada langkah ini, kita akan menstandarisasi fitur dengan menggunakan `StandardSc
 | Rata-rata fitur setelah standarisasi   | 0                                       |
 | Deviasi standar fitur setelah standarisasi | 1                                       |
 
-### 3. Normalisasi
+### 2. Normalisasi
 
 Selain standarisasi, kita juga menerapkan normalisasi menggunakan `MinMaxScaler`, yang mengubah skala fitur ke dalam rentang [0, 1].
 
@@ -242,7 +243,7 @@ Selain standarisasi, kita juga menerapkan normalisasi menggunakan `MinMaxScaler`
 | -0.456591    |  0.285175    |  1.948610   | -0.588818    |  1.024831    | -0.509328   | -0.057273   |
 | -0.816011    | -0.146890    | -0.177478   |  2.012460    |  0.249208    |  0.139939   | -0.030334   |
 
-### 4. Perbandingan Nilai Asli dan Nilai Normalisasi
+### 3. Perbandingan Nilai Asli dan Nilai Normalisasi
 
 | Original Size | Original Weight | Original Sweetness | Original Crunchiness | Original Juiciness | Original Ripeness | Original Acidity | Normalized Size | Normalized Weight | Normalized Sweetness | Normalized Crunchiness | Normalized Juiciness | Normalized Ripeness | Normalized Acidity |
 |---------------|------------------|---------------------|----------------------|--------------------|--------------------|-------------------|------------------|---------------------|----------------------|-----------------------|---------------------|---------------------|---------------------|
@@ -252,7 +253,7 @@ Selain standarisasi, kita juga menerapkan normalisasi menggunakan `MinMaxScaler`
 | -0.456591     |  0.285175        |  1.948610           | -0.588818            |  1.024831          | -0.509328          | -0.057273         | -0.456591        |  0.285175           |  1.948610            | -0.588818            |  1.024831           | -0.509328           | -0.057273           |
 | -0.816011     | -0.146890        | -0.177478           |  2.012460            |  0.249208          |  0.139939          | -0.030334         | -0.816011        | -0.146890           | -0.177478            |  2.012460            |  0.249208           |  0.139939           | -0.030334           |
 
-### 5. Data setelah Normalisasi
+### 4. Data setelah Normalisasi
 
 |     Size     |    Weight    |  Sweetness  |  Crunchiness |  Juiciness   |  Ripeness   |   Acidity   |
 |--------------|--------------|-------------|--------------|--------------|-------------|-------------|
@@ -263,11 +264,183 @@ Selain standarisasi, kita juga menerapkan normalisasi menggunakan `MinMaxScaler`
 |  0.37454175  |  0.45879104  |  0.45789899 |  0.72131318  |  0.52345814  |  0.50473515 |  0.48814003 |
 
 
-Normalisasi merupakan proses penting dalam tahap persiapan data, yang bertujuan untuk mengubah skala fitur agar berada dalam rentang yang sama. Dalam konteks dataset ini, normalisasi membantu memastikan bahwa setiap atribut, seperti Size, Weight, Sweetness, Crunchiness, Juiciness, Ripeness, dan Acidity, memiliki kontribusi yang setara saat model belajar. Dengan menghilangkan perbedaan skala, model dapat lebih efektif dalam menemukan pola dalam data, mengurangi bias, dan meningkatkan performa prediksi. Hasil normalisasi menunjukkan bahwa semua nilai fitur kini terdistribusi dengan lebih merata, mendukung proses pembelajaran mesin yang lebih stabil dan akurat.
 
+Normalisasi merupakan proses penting dalam tahap persiapan data, yang bertujuan untuk mengubah skala fitur agar berada dalam rentang yang sama. Dalam konteks dataset ini, normalisasi membantu memastikan bahwa setiap atribut, seperti Size, Weight, Sweetness, Crunchiness, Juiciness, Ripeness, dan Acidity, memiliki kontribusi yang setara saat model belajar. 
+
+
+Dengan menghilangkan perbedaan skala, model dapat lebih efektif dalam menemukan pola dalam data, mengurangi bias, dan meningkatkan performa prediksi. Hasil normalisasi menunjukkan bahwa semua nilai fitur kini terdistribusi dengan lebih merata, mendukung proses pembelajaran mesin yang lebih stabil dan akurat.
 
 
 # Modeling
-Pada tahap ini, akan menggunakan tiga algoritma untuk regresi. Kemudian, akan dilakukan evaluasi performa masing-masing algoritma dan menetukan algoritma mana yang memberikan hasil prediksi terbaik. Ketiga algoritma yang akan digunakan, antara lain:
+---
 
-1. K-Nearest Neighbor
+Pada proyek ini, beberapa model supervised learning diterapkan untuk tugas klasifikasi. Model-model tersebut meliputi:
+
+1. Logistic Regression
+2. Random Forest
+3. XGBoost
+4. Support Vector Machine (SVM)
+5. Naive Bayes
+6. Decision Tree
+
+Keenam model machine learning di atas dibangun sekaligus dengan **parameter default** untuk melakukan klasifikasi:
+
+1. **K-Nearest Neighbors (KNN)**
+   KNN adalah algoritma berbasis instance yang mencari sejumlah tetangga terdekat dari titik data dan memprediksi label berdasarkan mayoritas label tetangga
+   tersebut.
+
+   Default Parameter:
+   * n_neighbors=5: Jumlah tetangga yang akan digunakan dalam prediksi.
+   * metric='minkowski': Fungsi jarak yang digunakan, secara default menggunakan jarak Euclidean.
+   * weights='uniform': Semua tetangga memiliki bobot yang sama.
+2. **Random Forest**
+   
+   Random Forest adalah algoritma ensemble yang terdiri dari beberapa pohon keputusan (decision trees) yang dilatih pada subset acak dari data. Prediksi akhir
+   didasarkan pada agregasi (voting mayoritas) hasil dari tiap pohon.
+   
+   Default Parameter:
+   * n_estimators=100: Jumlah pohon dalam hutan.
+   * criterion='gini': Digunakan untuk mengukur kualitas split.
+   * max_depth=None: Tidak ada batasan pada kedalaman pohon.
+     
+3. **Support Vector Machine (SVM)**
+   
+   SVM adalah algoritma klasifikasi yang mencari hyperplane terbaik yang memisahkan dua kelas dengan margin terbesar.
+   
+   Default Parameter:
+   * C=1.0: Parameter regulasi untuk menghindari overfitting.
+   * kernel='rbf': Menggunakan kernel Gaussian Radial Basis Function (RBF).
+   * gamma='scale': Menentukan seberapa jauh pengaruh satu sampel individu.
+     
+4. **Naive Bayes (Gaussian Naive Bayes)**
+   
+   Naive Bayes adalah algoritma berbasis probabilitas yang menghitung kemungkinan setiap kelas berdasarkan teorema Bayes dan asumsi bahwa fitur bersifat
+   independen satu sama lain.
+   
+   Default Parameter:
+   * Asumsi distribusi Gaussian pada fitur yang kontinu.
+     
+5. **Decision Tree**
+   
+   Decision Tree adalah algoritma yang membuat model berdasarkan aturan if-then dari fitur data untuk membuat prediksi. Setiap cabang pohon mewakili keputusan.
+   
+   Default Parameter:
+   * criterion='gini': Digunakan untuk mengukur kualitas split.
+   * splitter='best': Pemilihan split terbaik di setiap simpul.
+   * max_depth=None: Tidak ada batasan pada kedalaman pohon.
+     
+7. **XGBoost (Extreme Gradient Boosting)**
+   
+   XGBoost adalah algoritma ensemble berbasis gradient boosting yang sangat efisien dan cepat, serta mampu menangani outlier dan missing values secara lebih baik
+   dibandingkan model lainnya.
+   
+   Default Parameter:
+   * n_estimators=100: Jumlah pohon boosting yang akan digunakan.
+   * learning_rate=0.1: Kecepatan pembelajaran atau dampak dari setiap pohon.
+   * max_depth=6: Kedalaman maksimum dari pohon keputusan.
+
+Setelah proses modeling, akurasi yang didapatkan adalah sebagai berikut:
+
+```python
+                 Model  Accuracy  Precision    Recall
+      0            KNN   0.89750   0.897644  0.897524
+      1  Random Forest   0.90875   0.908766  0.908759
+      2            SVM   0.90750   0.907532  0.907512
+      3    Naive Bayes   0.76250   0.762737  0.762461
+      4  Decision Tree   0.80125   0.801293  0.801264
+      5        XGBoost   0.90625   0.906250  0.906253
+```
+
+## Evaluation
+---
+
+Untuk menentukan kinerja model, perlu untuk mengevaluasi model yang sudah dibangun. Model klasifikasi akan dievaluasi menggunakan kriteria evaluasi seperti akurasi, presisi (*precision*), *recall*, dan *f1-score*. Persamaan-persamaan berikut menunjukkan perhitungan untuk mendapatkan evaluasi model.	
+
+- Akurasi adalah rasio prediksi yang benar terhadap jumlah estimasi secara keseluruhan. Rumus untuk menghitung akurasi ditunjukkan dalam Persamaan berikut:
+
+  $$ Accuracy = {TP+TN \over(TP+TN+FP+FN)} $$
+- Presisi (*Precision*) merupakan perbandingan antara jumlah prediksi positif yang tepat dengan keseluruhan hasil prediksi positif. Presisi dihitung menggunakan persamaan berikut:
+
+$$ Precision = {TP \over(TP+FP)} $$
+- *Recall* adalah perbandingan antara jumlah prediksi positif dengan jumlah data positif secara keseluruhan. *Recall* dihitung menggunakan persamaan berikut:
+
+$$ Recall = {TP \over(TP+FN)} $$
+- *F1-score* adalah suatu bentuk keseimbangan yang menggabungkan akurasi dan *recall* dalam sebuah sistem. Ini merupakan nilai rata-rata harmonis antara presisi dan *recall*. *F1-score* dihitung menggunakan persamaan berikut:
+
+$$ F1-score = {2* precision*recall \over precision+ recall} $$
+
+
+### Metrik Evaluasi
+
+Metrik evaluasi yang digunakan dalam proyek ini adalah Accuracy, Precision, dan Recall. Hasil evaluasi menunjukkan perbedaan kinerja di antara model:
+
+1. Accuracy: Mengukur persentase prediksi yang benar.
+2. Precision: Mengukur ketepatan prediksi positif.
+3. Recall: Mengukur kemampuan model dalam mendeteksi semua kasus positif.
+
+#### Confusion Matrix:
+
+<details>
+<summary>K-Nearest Neighbors (KNN)</summary>
+
+![KNN](https://i.postimg.cc/v8KNqQcP/KNN.png)
+
+</details>
+
+<details>
+<summary>Random Forest</summary>
+
+![RF](https://i.postimg.cc/4NbFJpW0/RF.png)
+
+</details>
+
+<details>
+<summary>XGBoost</summary>
+
+![XGBoost](https://i.postimg.cc/J0g70971/XG.png)
+
+</details>
+
+<details>
+<summary>Support Vector Machine (SVM)</summary>
+
+![SVM](https://i.postimg.cc/2jvC7X5B/svm.png)
+
+</details>
+
+<details>
+<summary>Naive Bayes</summary>
+
+![Naive Bayes](https://i.postimg.cc/PxyzgMXb/nv.png)
+
+</details>
+
+<details>
+<summary>Decision Tree</summary>
+
+![Decision Tree](https://i.postimg.cc/59ZqZj1R/DT.png)
+
+</details>
+
+### Hasil Evaluasi Model 
+
+Tabel 3. Hasil Accuracy
+
+![Plot Accuracy](https://i.postimg.cc/15GmLHJZ/akurasi.png)
+
+Gambar 3. Visualisasi Accuracy Model
+
+Grafik 3. membandingkan akurasi berbagai model klasifikasi yang telah diterapkan. XGBoost memiliki akurasi tertinggi (0.91), menunjukkan performa terbaik dalam memprediksi data. SVM, Random Forest, dan KNN semuanya menunjukkan akurasi yang sama (0.90), hanya sedikit lebih rendah dari XGBoost. Decision Tree memiliki akurasi 0.81, yang masih cukup baik, namun berada di bawah ketiga model sebelumnya. Naive Bayes mencatat akurasi terendah (0.76), yang berarti model ini kurang efektif dalam menangani dataset dibandingkan model lainnya.
+
+### Kesimpulan
+
+Berdasarkan hasil pemodelan untuk prediksi kualitas buah apel menggunakan beberapa algoritma machine learning seperti K-Nearest Neighbors (KNN), Random Forest, SVM, Naive Bayes, Decision Tree, dan XGBoost, setiap model memberikan hasil evaluasi yang bervariasi. Metrik yang digunakan untuk evaluasi meliputi accuracy, precision, dan recall. Di antara semua algoritma yang diuji, model yang memberikan kombinasi terbaik dari ketiga metrik tersebut dapat dipilih sebagai model yang optimal untuk memprediksi kualitas apel. Pemilihan model ini akan memberikan akurasi yang lebih baik dalam menentukan kualitas apel berdasarkan fitur yang tersedia.
+
+## Referensi
+--- 
+ 
+4. Support Vector Machine (SVM)
+5. Naive Bayes
+6. Decision Tree
+
+
