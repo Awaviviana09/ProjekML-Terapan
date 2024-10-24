@@ -6,7 +6,7 @@ Domain proyek yang dipilih dalam proyek _machine learning_ ini adalah mengenai P
 
 * #####  Latar Belakang
   ![](https://cdn1-production-images-kly.akamaized.net/xBRT773xJ9vvZx12J6fN1IIVhko=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2792644/original/076377400_1556614591-aaron-blanco-tejedor-390113-unsplash.jpg)
-Apel (Malus domestica) adalah salah satu jenis buah yang sangat diminati masyarakat berkat variasi rasa yang ditawarkannya. Di industri pertanian dan pemasaran, kualitas buah apel menjadi faktor penting yang sangat memengaruhi nilai jual dan minat konsumen [[1]](https://doi.org/10.30606/rjocs.v10i2.2856). Untuk itu, berbagai metode telah dikembangkan guna memprediksi dan meningkatkan kualitas buah ini. Meskipun pendekatan konvensional seperti pengukuran manual dan analisis laboratorium masih sering digunakan, metode ini cenderung membutuhkan waktu yang lama serta tidak selalu memberikan hasil yang akurat.
+Apel (Malus domestica) adalah salah satu jenis buah yang sangat diminati masyarakat berkat variasi rasa yang ditawarkannya. Di industri pertanian dan pemasaran, kualitas buah apel menjadi faktor penting yang sangat memengaruhi nilai jual dan minat konsumen [[1]](https://protan.studentjournal.ub.ac.id/index.php/protan/article/view/1). Untuk itu, berbagai metode telah dikembangkan guna memprediksi dan meningkatkan kualitas buah ini. Meskipun pendekatan konvensional seperti pengukuran manual dan analisis laboratorium masih sering digunakan, metode ini cenderung membutuhkan waktu yang lama serta tidak selalu memberikan hasil yang akurat.
 
   Seiring dengan pesatnya perkembangan teknologi, khususnya di bidang machine learning, potensi untuk meningkatkan prediksi kualitas buah apel semakin terbuka lebar. Teknik-teknik analisis prediktif berbasis machine learning dapat membantu mengungkap pola-pola kompleks dalam data yang sulit diidentifikasi menggunakan metode konvensional [[2]](https://doi.org/10.21873/cgp.20063). Lebih jauh, penerapan data preprocessing dalam pengolahan dataset memiliki peran penting dalam mengoptimalkan kualitas data, meningkatkan akurasi model, serta mengurangi bias yang mungkin timbul dalam proses prediksi [[3]](https://doi.org/10.47970/siskom-kb.v4i1.169).
 
@@ -64,7 +64,7 @@ Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini diantaranya :
 ## Data Understanding
 ---
 ![Image of Dataset](https://i.postimg.cc/CKJ0sBXT/Screenshot-2024-10-10-204041.png)
-Informasi dataset dapat dilihat pada tabel dibawah ini :
+Informasi dataset dapat dilihat pada **Tabel 1. Informasi dataset** dibawah ini :
 Jenis | Keterangan
 --- | ---
 Sumber | [Kaggle Dataset : Apple Quality Dataset](https://www.kaggle.com/datasets/nelgiriyewithana/apple-quality/data)
@@ -99,6 +99,8 @@ Pada tahap ini, kita akan menganalisis struktur dan karakteristik dataset yang d
       
 Data yang digunakan dalam pembuatan model merupakan data primer, data ini didapat dari sebuah perusahaan pertanian Amerika, yang disediakan secara publik di kaggle dengan nama datasets yaitu: _Apple Quality_
 
+**Tabel 2. Tabel Deskripsi**
+
 | A_id | Size | Weight | Sweetness | Crunchiness | Juiciness | Ripeness | Acidity | Quality |
 | ------ | ------ |------ | ------ | ------ | ------ |------ | ------ |------ |
 | 0.0 | -3.970049 |-2.512336 | 5.346330 |-1.012009 | 1.844900 |0.329840	| -0.491590483  |good |
@@ -109,9 +111,9 @@ Data yang digunakan dalam pembuatan model merupakan data primer, data ini didapa
   
 
 
-### 3. Menangani Missing Values
+### 2. Menangani Missing Values
 
-Untuk mendeteksi missing value digunakan fungsi isnull().sum() dan diperoleh: **Tabel 1. Hasil Deteksi Missing Value**
+Untuk mendeteksi missing value digunakan fungsi isnull().sum() dan diperoleh: **Tabel 3. Hasil Deteksi Missing Value**
 | Variable     | Missing Value | Metode Penanganan |
 |--------------|---------------|-------------------|
 | Size         | 1             | Imputasi Mean     |
@@ -127,20 +129,20 @@ Langkah yang diambil:
 - Missing values pada kolom numerik akan diisi menggunakan rata-rata (**mean**).
 - Missing values pada kolom kategorikal akan diimputasi menggunakan nilai yang paling sering muncul (**modus**).
 
-### 4. Menangani Outliers
+### 3. Menangani Outliers
 
 Untuk menangani outliers, metode **Interquartile Range (IQR)** digunakan. IQR mengidentifikasi data yang berada di luar rentang normal, yaitu di luar batas [Q1 - 1.5 * IQR, Q3 + 1.5 * IQR].
 
-**Tabel 2 Visualisasi Boxplot Sebelum dan Sesudah Metode IQR**:
+**Tabel 4. Visualisasi Boxplot Sebelum dan Sesudah Metode IQR**:
 
 | Boxplot Sebelum IQR        | Boxplot Setelah IQR        |
 |----------------------------|----------------------------|
 | ![Before](https://i.postimg.cc/BQ72GNWp/sebelum.png)                | ![After](https://i.postimg.cc/X7PBPJFD/sesudah.png)                |
 
 
-### 5. Perbandingan Jumlah Data Sebelum dan Setelah Dibersihkan dari Outliers
+### 4. Perbandingan Jumlah Data Sebelum dan Setelah Dibersihkan dari Outliers
 
-Setelah dilakukan pembersihan outliers dengan metode **IQR**, jumlah data yang tersisa dibandingkan dengan jumlah data awal adalah seperti pada **Tabel 3. Perbandingan Jumlah Data Sebelum dan Setelah Dibersihkan dari Outlier**:
+Setelah dilakukan pembersihan outliers dengan metode **IQR**, jumlah data yang tersisa dibandingkan dengan jumlah data awal adalah seperti pada **Tabel 5. Perbandingan Jumlah Data Sebelum dan Setelah Dibersihkan dari Outlier**:
 
 | Jumlah Data Sebelum  | Jumlah Data Setelah |
 |----------------------|---------------------|
@@ -158,6 +160,7 @@ Selanjutnya, akan dilakukan proses analisis data dengan teknik Univariate EDA. P
 Untuk melihat distribusi data pada tiap fitur akan digunakan visualisasi dengan histogram sebagai berikut:
 
 ![histogram](https://i.postimg.cc/CxqtBcgM/ultra.png)
+**Gambar 1. Visualisasi Histogram**
 
 Dari hasil visualisasi histogram di atas, kita bisa memperoleh beberapa informasi, antara lain:
 
@@ -173,7 +176,7 @@ Untuk mengamati hubungan antara fitur numerik, akan digunakan fungsi pairplot(),
 
 ![grafik_pairplot](https://i.postimg.cc/ncbjvz84/multi.png)
 
-Gambar 2. Visualisasi Hubungan antara Fitur Numerik dengan pairplot()
+**Gambar 2. Visualisasi Hubungan antara Fitur Numerik dengan pairplot()**
 
 Secara keseluruhan, pairplot ini membantu kita memahami kompleksitas hubungan antara berbagai karakteristik (seperti ukuran, berat, kemanisan, dsb.) dari suatu objek. Kita bisa melihat variabel mana yang saling terkait, variabel mana yang tidak, dan variabel mana yang mungkin mempengaruhi kualitas.
 
@@ -183,7 +186,7 @@ Untuk mengevaluasi skor korelasi hubungan antara fitur numerik, akan digunakan f
 
 ![matriks](https://i.postimg.cc/25wFtWYN/matriks.png)
 
-Gambar 3. Korelasi antara Fitur Numerik
+**Gambar 3. Korelasi antara Fitur Numerik**
 
 Koefisien korelasi berkisar antara -1 dan +1. Semakin dekat nilainya ke 1 atau -1, maka korelasinya semakin kuat. Sedangkan, semakin dekat nilainya ke 0 maka korelasinya semakin lemah.
 
@@ -205,7 +208,7 @@ Dataset akan dibagi menjadi data latih (train) dan data uji (test). Tujuan langk
 
 Pada kasus ini akan menggunakan proporsi pembagian sebesar 90:10 dengan fungsi train_test_split dari sklearn dengan output sebagai berikut.
 
-Tabel 4. Jumlah Data Latih dan Uji
+**Tabel 6. Jumlah Data Latih dan Uji**
 
 Jumlah Total Data | Jumlah Data Latih | Jumlah Data Uji
 ----------------- | ----------------- | ---------------
@@ -216,12 +219,12 @@ Proses standarisasi bertujuan untuk membuat fitur data menjadi bentuk yang lebih
 
 StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean kemudian membaginya dengan standar deviasi untuk menggeser distribusi. StandarScaler menghasilkan distribusi deviasi sama dengan 1 dan mean sama dengan 0.
 
-Berikut output yang dihasilkan dari metode StandardScaler dengan menggunakan fungsi describe():
 
-Tabel 5. Hasil Proses Standarisasi Pada Setiap Fitur Pada Data Latih
 ### 1. Standarisasi (Normalisasi Fitur)
 
 Pada langkah ini, kita akan menstandarisasi fitur dengan menggunakan `StandardScaler`, sehingga setiap fitur memiliki rata-rata 0 dan deviasi standar 1.
+
+**Tabel 7. Hasil Proses Standarisasi Pada Setiap Fitur Pada Data Latih**
 
 | Deskripsi                             | Keterangan                              |
 |---------------------------------------|-----------------------------------------|
@@ -235,6 +238,8 @@ Selain standarisasi, kita juga menerapkan normalisasi menggunakan `MinMaxScaler`
 
 #### Hasil Normalisasi:
 
+**Tabel 8. Hasil Normalisasi**
+
 |     Size     |    Weight    |  Sweetness  |  Crunchiness |  Juiciness   |  Ripeness   |   Acidity   |
 |--------------|--------------|-------------|--------------|--------------|-------------|-------------|
 |  1.027890    | -1.001988    |  0.084334   |  0.393453    |  0.271185    |  1.108047   | -0.627140   |
@@ -245,6 +250,8 @@ Selain standarisasi, kita juga menerapkan normalisasi menggunakan `MinMaxScaler`
 
 ### 3. Perbandingan Nilai Asli dan Nilai Normalisasi
 
+**Tabel 9. Perbandingan Nilai Asli dan Nilai Normalisasi**
+
 | Original Size | Original Weight | Original Sweetness | Original Crunchiness | Original Juiciness | Original Ripeness | Original Acidity | Normalized Size | Normalized Weight | Normalized Sweetness | Normalized Crunchiness | Normalized Juiciness | Normalized Ripeness | Normalized Acidity |
 |---------------|------------------|---------------------|----------------------|--------------------|--------------------|-------------------|------------------|---------------------|----------------------|-----------------------|---------------------|---------------------|---------------------|
 |  1.027890     | -1.001988        |  0.084334           |  0.393453            |  0.271185          |  1.108047          | -0.627140         |  1.027890        | -1.001988           |  0.084334            |  0.393453             |  0.271185           |  1.108047           | -0.627140           |
@@ -254,6 +261,8 @@ Selain standarisasi, kita juga menerapkan normalisasi menggunakan `MinMaxScaler`
 | -0.816011     | -0.146890        | -0.177478           |  2.012460            |  0.249208          |  0.139939          | -0.030334         | -0.816011        | -0.146890           | -0.177478            |  2.012460            |  0.249208           |  0.139939           | -0.030334           |
 
 ### 4. Data setelah Normalisasi
+
+**Tabel 10. Setelah Normalisasi**
 
 |     Size     |    Weight    |  Sweetness  |  Crunchiness |  Juiciness   |  Ripeness   |   Acidity   |
 |--------------|--------------|-------------|--------------|--------------|-------------|-------------|
@@ -443,15 +452,14 @@ Berdasarkan hasil pemodelan untuk prediksi kualitas buah apel menggunakan bebera
 
 [2] Huang et al. (2018). _Applications of Support Vector Machine (SVM) Learning in Cancer Genomics_. Tersedia: [tautan](https://cgp.iiarjournals.org/content/15/1/41.abstract). Diakses pada 24 Oktober 2024.
 
-[3] Ridwan, Ahmad. (2020). _Penerapan Algoritma Naïve Bayes Untuk Klasifikasi Penyakit Diabetes Mellitus_. Tersedia: [https://jurnal.tau.ac.id/index.php/siskom-kb/article/view/169]). Diakses pada 24 Oktober 2024.
+[3] Ridwan, Ahmad. (2020). _Penerapan Algoritma Naïve Bayes Untuk Klasifikasi Penyakit Diabetes Mellitus_. Tersedia: [tautan](https://jurnal.tau.ac.id/index.php/siskom-kb/article/view/169). Diakses pada 24 Oktober 2024.
 
 [4] Sani, Ramadhan Rakhmat.,  Zeniarja, Junta., & Luthfiarta, Ardytha. (2016). _Penerapan Algoritma K-Nearest Neighbor pada Information Retrieval dalam Penentuan Topik Referensi Tugas Akhir_. Tersedia: [tautan](https://publikasi.dinus.ac.id/index.php/jais/article/view/1189/). Diakses pada 21 Oktober 2024.
 
+[5] Haristu, Reinardus Aji (2019) _Penerapan metode Random Forest untuk prediksi win ratio pemain player Unknown Battleground_. Tersedia: [tautan](https://repository.usd.ac.id/35513/). Diakses pada 21 Oktober 2024.
 
-[6] Haristu, Reinardus Aji (2019) _Penerapan metode Random Forest untuk prediksi win ratio pemain player Unknown Battleground_. Tersedia: [tautan](https://repository.usd.ac.id/35513/). Diakses pada 21 Oktober 2024.
+[6] Gandhi, Rohits. (2018). _Support Vector Machine — Introduction to Machine Learning Algorithms_. Tersedia: [tautan](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47). Diakses pada 23 Oktober 2024.
 
-[7] Gandhi, Rohits. (2018). _Support Vector Machine — Introduction to Machine Learning Algorithms_. Tersedia: [tautan](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47). Diakses pada 23 Oktober 2024.
+[7] Gandhi, Rohits. (2018). _Naive Bayes Classifier_. Tersedia: [tautan](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47). Diakses pada 23 Oktober 2024.
 
-[8] Gandhi, Rohits. (2018). _Naive Bayes Classifier_. Tersedia: [tautan](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47). Diakses pada 23 Oktober 2024.
-
-[9] Gandhi, Rohits. (2018). _Decision Tree, Random Forest, and XGBoost: An Exploration into the Heart of Machine Learning_. Tersedia: [tautan](https://medium.com/@brandon93.w/decision-tree-random-forest-and-xgboost-an-exploration-into-the-heart-of-machine-learning-90dc212f4948). Diakses pada 23 Oktober 2024.
+[8] Gandhi, Rohits. (2018). _Decision Tree, Random Forest, and XGBoost: An Exploration into the Heart of Machine Learning_. Tersedia: [tautan](https://medium.com/@brandon93.w/decision-tree-random-forest-and-xgboost-an-exploration-into-the-heart-of-machine-learning-90dc212f4948). Diakses pada 23 Oktober 2024.
