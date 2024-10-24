@@ -36,27 +36,27 @@ Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini diantaranya :
     * Melakukan _Standard Scaler_.
 
 * Untuk pembuatan model dipilih penggunaan model dengan algoritma Random Forest dan K-Nearest Neighbor. Algoritma tersebut dipilih karena mudah digunakan dan juga cocok untuk kasus ini. Berikut cara kerja, kelebihan dan kekurangan dari masing-masing algoritma yang digunakan
-  1. K-Nearest Neighbors (KNN) [[4]](https://publikasi.dinus.ac.id/index.php/jais/article/view/1189/)
+  1. **K-Nearest Neighbors (KNN)** [[4]](https://publikasi.dinus.ac.id/index.php/jais/article/view/1189/)
      * Cara Kerja: Mengklasifikasikan data baru berdasarkan mayoritas dari "k" tetangga terdekatnya.
      * Kelebihan: Sederhana, tidak memerlukan asumsi distribusi data, bagus untuk dataset kecil.
      * Kekurangan: Lambat untuk dataset besar, sensitif terhadap noise.
-  2. Random Forest [[5]](https://repository.usd.ac.id/35513/)
+  2. **Random Forest** [[5]](https://repository.usd.ac.id/35513/)
      * Cara Kerja: Menggunakan banyak pohon keputusan yang dilatih pada subset data yang berbeda dan menggabungkan hasilnya.
      * Kelebihan: Baik dalam menangani overfitting, bisa menangani banyak fitur.
      * Kekurangan: Relatif lambat untuk prediksi, sulit diinterpretasikan.
-  3. Support Vector Machine (SVM) [[6](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47)]
+  3. **Support Vector Machine (SVM)** [[6](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47)]
      * Cara Kerja: Mencari hyperplane yang memisahkan kelas dengan margin maksimum.
      * Kelebihan: Efektif untuk ruang berdimensi tinggi, menggunakan kernel trick untuk data non-linear.
      * Kekurangan: Tidak efisien untuk dataset besar, memerlukan scaling.
-  4. Naive Bayes [[7](https://towardsdatascience.com/naive-bayes-classifier-81d512f50a7c)]
+  4. **Naive Bayes** [[7](https://towardsdatascience.com/naive-bayes-classifier-81d512f50a7c)]
      * Cara Kerja: Menggunakan Teorema Bayes dengan asumsi independensi antar fitur.
      * Kelebihan: Cepat, efisien untuk dataset besar, baik untuk klasifikasi teks.
      * Kekurangan: Asumsi independensi sering tidak realistis.
-  5. Decision Tree [[8](https://medium.com/@brandon93.w/decision-tree-random-forest-and-xgboost-an-exploration-into-the-heart-of-machine-learning-90dc212f4948)]
+  5. **Decision Tree** [[8](https://medium.com/@brandon93.w/decision-tree-random-forest-and-xgboost-an-exploration-into-the-heart-of-machine-learning-90dc212f4948)]
      * Cara Kerja: Membagi dataset berdasarkan kondisi untuk membuat keputusan.
      * Kelebihan: Mudah dipahami, tidak memerlukan scaling.
      * Kekurangan: Cenderung overfitting jika tidak dipangkas
-  6. XGBoost [[9](https://medium.com/@brandon93.w/decision-tree-random-forest-and-xgboost-an-exploration-into-the-heart-of-machine-learning-90dc212f4948)]
+  6. **XGBoost** [[9](https://medium.com/@brandon93.w/decision-tree-random-forest-and-xgboost-an-exploration-into-the-heart-of-machine-learning-90dc212f4948)]
      * Cara Kerja: Algoritma boosting yang membangun banyak pohon keputusan untuk memperbaiki kesalahan sebelumnya.
      * Kelebihan: Efisien dalam waktu pelatihan, menangani missing data otomatis.
      * Kekurangan: Membutuhkan tuning hyperparameter yang rumit.
