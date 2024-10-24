@@ -8,7 +8,7 @@ Domain proyek yang dipilih dalam proyek _machine learning_ ini adalah mengenai P
   ![](https://cdn1-production-images-kly.akamaized.net/xBRT773xJ9vvZx12J6fN1IIVhko=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2792644/original/076377400_1556614591-aaron-blanco-tejedor-390113-unsplash.jpg)
 Apel (Malus domestica) adalah salah satu jenis buah yang sangat diminati masyarakat berkat variasi rasa yang ditawarkannya. Di industri pertanian dan pemasaran, kualitas buah apel menjadi faktor penting yang sangat memengaruhi nilai jual dan minat konsumen [[1]](https://doi.org/10.30606/rjocs.v10i2.2856). Untuk itu, berbagai metode telah dikembangkan guna memprediksi dan meningkatkan kualitas buah ini. Meskipun pendekatan konvensional seperti pengukuran manual dan analisis laboratorium masih sering digunakan, metode ini cenderung membutuhkan waktu yang lama serta tidak selalu memberikan hasil yang akurat.
 
-  Seiring dengan pesatnya perkembangan teknologi, khususnya di bidang machine learning, potensi untuk meningkatkan prediksi kualitas buah apel semakin terbuka lebar. Teknik-teknik analisis prediktif berbasis machine learning dapat membantu mengungkap pola-pola kompleks dalam data yang sulit diidentifikasi menggunakan metode konvensional [[2]](https://doi.org/10.21873/cgp.20063).. Lebih jauh, penerapan data preprocessing dalam pengolahan dataset memiliki peran penting dalam mengoptimalkan kualitas data, meningkatkan akurasi model, serta mengurangi bias yang mungkin timbul dalam proses prediksi [[3]](https://doi.org/10.47970/siskom-kb.v4i1.169).
+  Seiring dengan pesatnya perkembangan teknologi, khususnya di bidang machine learning, potensi untuk meningkatkan prediksi kualitas buah apel semakin terbuka lebar. Teknik-teknik analisis prediktif berbasis machine learning dapat membantu mengungkap pola-pola kompleks dalam data yang sulit diidentifikasi menggunakan metode konvensional [[2]](https://doi.org/10.21873/cgp.20063). Lebih jauh, penerapan data preprocessing dalam pengolahan dataset memiliki peran penting dalam mengoptimalkan kualitas data, meningkatkan akurasi model, serta mengurangi bias yang mungkin timbul dalam proses prediksi [[3]](https://doi.org/10.47970/siskom-kb.v4i1.169).
 
 ## Business Understanding
 ---
@@ -439,12 +439,19 @@ Berdasarkan hasil pemodelan untuk prediksi kualitas buah apel menggunakan bebera
 ## Referensi
 --- 
  
-[1] Asmara et al. (2023). _Lung Cancer in Indonesia_._Journal of Thoracic Oncology_, 18(9), 1134-1145. Tersedia: [tautan](https://www.sciencedirect.com/science/article/pii/S1556086423006317). Diakses pada 17 September 2024.
+[1] Sellitasari, Shelvi., Ainurrasyid., & Suryanto, Agus. (2013). _PERBEDAAN PRODUKSI TANAMAN APEL (Malus sylvestris mill.) PADA AGROKLIMAT YANG BERBEDA (Studi Kasus Pada Sentra Produksi Tanaman Apel di Kota Batu dan Kabupaten Malang)_. Tersedia: [tautan](https://protan.studentjournal.ub.ac.id/index.php/protan/article/view/1). Diakses pada 24 Oktober 2024.
 
-[2] Santoso, H., Chalidyanto, D., & Laksono, A. D. (2021). _The Prevalence of Cancer in Indonesia: An Ecological Analysis_. _Indian Journal of Forensic Medicine & Toxicology_, 15(3), 3170-3176. Tersedia: [tautan](https://repository.unair.ac.id/124051/5/8.%20Cover-Artikel%20The%20Prevalence%20of%20Cancer%20in%20Indonesia.pdf). Diakses pada 17 September 2024.
+[2] Huang et al. (2018). _Applications of Support Vector Machine (SVM) Learning in Cancer Genomics_. Tersedia: [tautan](https://cgp.iiarjournals.org/content/15/1/41.abstract). Diakses pada 24 Oktober 2024.
 
-[3] World Cancer Research Fund. (n.d). _Lung cancer statistics_. Tersedia: [tautan](https://www.wcrf.org/cancer-trends/lung-cancer-statistics/). Diakses pada 17 September 2024.
+[3] Ridwan, Ahmad. (2020). _Penerapan Algoritma Naïve Bayes Untuk Klasifikasi Penyakit Diabetes Mellitus_. Tersedia: [https://jurnal.tau.ac.id/index.php/siskom-kb/article/view/169]). Diakses pada 24 Oktober 2024.
 
-[4] Kaggle. (n.d). _Lung cancer dataset_. Tersedia: [tautan](https://www.kaggle.com/datasets/thedevastator/cancer-patients-and-air-pollution-a-new-link). Diakses pada 17 September 2024.
+[4] Sani, Ramadhan Rakhmat.,  Zeniarja, Junta., & Luthfiarta, Ardytha. (2016). _Penerapan Algoritma K-Nearest Neighbor pada Information Retrieval dalam Penentuan Topik Referensi Tugas Akhir_. Tersedia: [tautan](https://publikasi.dinus.ac.id/index.php/jais/article/view/1189/). Diakses pada 21 Oktober 2024.
 
 
+[6] Haristu, Reinardus Aji (2019) _Penerapan metode Random Forest untuk prediksi win ratio pemain player Unknown Battleground_. Tersedia: [tautan](https://repository.usd.ac.id/35513/). Diakses pada 21 Oktober 2024.
+
+[7] Gandhi, Rohits. (2018). _Support Vector Machine — Introduction to Machine Learning Algorithms_. Tersedia: [tautan](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47). Diakses pada 23 Oktober 2024.
+
+[8] Gandhi, Rohits. (2018). _Naive Bayes Classifier_. Tersedia: [tautan](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47). Diakses pada 23 Oktober 2024.
+
+[9] Gandhi, Rohits. (2018). _Decision Tree, Random Forest, and XGBoost: An Exploration into the Heart of Machine Learning_. Tersedia: [tautan](https://medium.com/@brandon93.w/decision-tree-random-forest-and-xgboost-an-exploration-into-the-heart-of-machine-learning-90dc212f4948). Diakses pada 23 Oktober 2024.
