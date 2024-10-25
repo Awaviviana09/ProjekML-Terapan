@@ -6,7 +6,7 @@ Domain proyek yang dipilih dalam proyek _machine learning_ ini adalah mengenai P
 
 * #####  Latar Belakang
   ![](https://cdn1-production-images-kly.akamaized.net/xBRT773xJ9vvZx12J6fN1IIVhko=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2792644/original/076377400_1556614591-aaron-blanco-tejedor-390113-unsplash.jpg)
-Apel (Malus domestica) adalah salah satu jenis buah yang sangat diminati masyarakat berkat variasi rasa yang ditawarkannya. Di industri pertanian dan pemasaran, kualitas buah apel menjadi faktor penting yang sangat memengaruhi nilai jual dan minat konsumen [[1]](https://protan.studentjournal.ub.ac.id/index.php/protan/article/view/1). Untuk itu, berbagai metode telah dikembangkan guna memprediksi dan meningkatkan kualitas buah ini. Meskipun pendekatan konvensional seperti pengukuran manual dan analisis laboratorium masih sering digunakan, metode ini cenderung membutuhkan waktu yang lama serta tidak selalu memberikan hasil yang akurat.
+Apel (Malus domestica) adalah salah satu jenis buah yang sangat diminati masyarakat berkat variasi rasa yang ditawarkannya. Di industri pertanian dan pemasaran, kualitas buah apel menjadi faktor penting yang sangat memengaruhi nilai jual dan minat konsumen [[1]](https://protan.studentjournal.ub.ac.id/index.php/protan/article/view/1). Untuk itu, berbagai metode telah dikembangkan guna memprediksi dan meningkatkan kualitas buah ini. Meskipun pendekatan konvensional seperti pengukuran manual dan analisis laboratorium masih sering digunakan, metode ini cenderung membutuhkan waktu yang lama serta tidak selalu memberikan hasil yang akurat [[2]](https://ojs.uniska-bjm.ac.id/index.php/JIT/index).
 
   Dalam laporan ini, Dibangunlah beberapa model machine learning dengan tujuan untuk memprediksi kualitas apel berdasarkan fitur-fitur yang telah diukur. Model-model yang digunakan meliputi K-Nearest Neighbors (KNN), Random Forest, Support Vector Machine (SVM), Naive Bayes, Decision Tree, dan XGBoost. Setiap algoritma memiliki kelebihan dan kekurangan yang berbeda dalam menangani data, yang kami evaluasi melalui metrik seperti accuracy, precision, dan recall [[3]](https://doi.org/10.47970/siskom-kb.v4i1.169). Penggunaan metode ini diharapkan dapat meningkatkan akurasi prediksi kualitas apel dan membantu produsen dalam pengambilan keputusan yang lebih baik terkait klasifikasi produk untuk konsumsi atau penjualan.
 
@@ -98,7 +98,8 @@ Selanjutnya, akan dilakukan proses analisis data dengan teknik Univariate EDA. P
 
 Untuk melihat distribusi data pada tiap fitur akan digunakan visualisasi dengan histogram sebagai berikut:
 
-![histogram](https://i.postimg.cc/CxqtBcgM/ultra.png)
+![analisa](https://github.com/user-attachments/assets/d9153918-cd8a-4deb-86ca-e9d43b494793)
+
 **Gambar 1. Visualisasi Histogram**
 
 Dari hasil visualisasi histogram di atas, kita bisa memperoleh beberapa informasi, antara lain:
@@ -113,7 +114,7 @@ Karena beberapa fitur belum terdistribusi normal hal ini akan berimplikasi pada 
 
 Untuk mengamati hubungan antara fitur numerik, akan digunakan fungsi pairplot(), dengan output sebagai berikut:
 
-![grafik_pairplot](https://i.postimg.cc/ncbjvz84/multi.png)
+![pairplot](https://github.com/user-attachments/assets/ea87b2e4-e933-4f82-a37b-0a8634f0361b)
 
 **Gambar 2. Visualisasi Hubungan antara Fitur Numerik dengan pairplot()**
 
@@ -123,14 +124,13 @@ Secara keseluruhan, pairplot ini membantu kita memahami kompleksitas hubungan an
 
 Untuk mengevaluasi skor korelasi hubungan antara fitur numerik, akan digunakan fungsi corr() dengan output sebagai berikut.
 
-![matriks](https://i.postimg.cc/25wFtWYN/matriks.png)
+![matriks korelasi](https://github.com/user-attachments/assets/6c24e1f7-89cb-4776-a111-095d0a798211)
 
 **Gambar 3. Korelasi antara Fitur Numerik**
 
 Koefisien korelasi berkisar antara -1 dan +1. Semakin dekat nilainya ke 1 atau -1, maka korelasinya semakin kuat. Sedangkan, semakin dekat nilainya ke 0 maka korelasinya semakin lemah.
 
 Berdasarkan matriks korelasi ini, kita bisa menyimpulkan bahwa kualitas suatu objek dipengaruhi oleh beberapa faktor seperti ukuran, juiciness, acidity, sweetness, dan ripeness. Objek yang lebih besar, lebih juicy, lebih asam, dan kurang manis serta kurang matang cenderung memiliki kualitas yang lebih baik.
-
 
 
 ## Data Preparation
@@ -163,7 +163,9 @@ Untuk menangani outliers, metode **Interquartile Range (IQR)** digunakan. IQR me
 
 | Boxplot Sebelum IQR        | Boxplot Setelah IQR        |
 |----------------------------|----------------------------|
-| ![Before](https://i.postimg.cc/BQ72GNWp/sebelum.png)                | ![After](https://i.postimg.cc/X7PBPJFD/sesudah.png)                |
+| ![sebelum](https://github.com/user-attachments/assets/4ea148bb-4919-4c7d-b3f9-0194a34da99c)                |![sesudah](https://github.com/user-attachments/assets/6f39ef2b-2bfa-45c1-a86c-ffa7b6239f32)
+        |
+
 
 
 ### 3. Perbandingan Jumlah Data Sebelum dan Setelah Dibersihkan dari Outliers
@@ -395,42 +397,42 @@ Setelah proses modeling, akurasi yang didapatkan adalah sebagai berikut:
 <details>
 <summary>K-Nearest Neighbors (KNN)</summary>
 
-![KNN](https://i.postimg.cc/v8KNqQcP/KNN.png)
+![KNN](https://github.com/user-attachments/assets/6f829975-05da-46b3-80d8-db8d987c23e7)
 
 </details>
 
 <details>
 <summary>Random Forest</summary>
 
-![RF](https://i.postimg.cc/4NbFJpW0/RF.png)
+![RF](https://github.com/user-attachments/assets/444cf707-f913-4cd9-8337-f9ff24f7673f)
 
 </details>
 
 <details>
 <summary>XGBoost</summary>
 
-![XGBoost](https://i.postimg.cc/J0g70971/XG.png)
+![XGBoost](https://github.com/user-attachments/assets/49411606-5217-44cc-bd5c-cb2e9047a06d)
 
 </details>
 
 <details>
 <summary>Support Vector Machine (SVM)</summary>
 
-![SVM](https://i.postimg.cc/2jvC7X5B/svm.png)
+![SVM](https://github.com/user-attachments/assets/0169bb2c-a97c-4fd6-a059-8006bd3af6a0)
 
 </details>
 
 <details>
 <summary>Naive Bayes</summary>
 
-![Naive Bayes](https://i.postimg.cc/PxyzgMXb/nv.png)
+![Naive Bayes](https://github.com/user-attachments/assets/d8653236-4a53-4233-8c42-c823ef7a4964)
 
 </details>
 
 <details>
 <summary>Decision Tree</summary>
 
-![Decision Tree](https://i.postimg.cc/59ZqZj1R/DT.png)
+![Decision Tree](https://github.com/user-attachments/assets/9ad54cd8-4cad-4f1c-91e3-f22040938089)
 
 </details>
 
@@ -438,7 +440,7 @@ Setelah proses modeling, akurasi yang didapatkan adalah sebagai berikut:
 
 Tabel 3. Hasil Accuracy
 
-![Plot Accuracy](https://i.postimg.cc/15GmLHJZ/akurasi.png)
+![Plot Akurasi](https://github.com/user-attachments/assets/84e22f25-765a-47bc-83dc-f3798fcd22b4)
 
 Gambar 3. Visualisasi Accuracy Model
 
@@ -459,7 +461,8 @@ Model machine learning yang kami bangun berhasil meningkatkan akurasi prediksi k
  
 [1] Sellitasari, Shelvi., Ainurrasyid., & Suryanto, Agus. (2013). _PERBEDAAN PRODUKSI TANAMAN APEL (Malus sylvestris mill.) PADA AGROKLIMAT YANG BERBEDA (Studi Kasus Pada Sentra Produksi Tanaman Apel di Kota Batu dan Kabupaten Malang)_. Tersedia: [tautan](https://protan.studentjournal.ub.ac.id/index.php/protan/article/view/1). Diakses pada 24 Oktober 2024.
 
-[2] Huang et al. (2018). _Applications of Support Vector Machine (SVM) Learning in Cancer Genomics_. Tersedia: [tautan](https://cgp.iiarjournals.org/content/15/1/41.abstract). Diakses pada 24 Oktober 2024.
+[2] Purnomo, Indu Indah & Syafarina,  Gita Ayu . (2024). _Analisis Prediktif Dan Preprocessing Untuk Kualitas Buah Apel
+Pendekatan Machine Learning_. Tersedia: [tautan](https://ojs.uniska-bjm.ac.id/index.php/JIT/index). Diakses pada 24 Oktober 2024.
 
 [3] Ridwan, Ahmad. (2020). _Penerapan Algoritma Naïve Bayes Untuk Klasifikasi Penyakit Diabetes Mellitus_. Tersedia: [tautan](https://jurnal.tau.ac.id/index.php/siskom-kb/article/view/169). Diakses pada 24 Oktober 2024.
 
@@ -472,3 +475,8 @@ Model machine learning yang kami bangun berhasil meningkatkan akurasi prediksi k
 [7] Gandhi, Rohits. (2018). _Naive Bayes Classifier_. Tersedia: [tautan](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47). Diakses pada 23 Oktober 2024.
 
 [8] Gandhi, Rohits. (2018). _Decision Tree, Random Forest, and XGBoost: An Exploration into the Heart of Machine Learning_. Tersedia: [tautan](https://medium.com/@brandon93.w/decision-tree-random-forest-and-xgboost-an-exploration-into-the-heart-of-machine-learning-90dc212f4948). Diakses pada 23 Oktober 2024.
+
+
+
+
+
