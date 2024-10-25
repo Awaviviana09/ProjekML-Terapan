@@ -43,7 +43,7 @@ Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini diantaranya :
     
 ## Data Understanding
 ---
-![Image of Dataset](https://i.postimg.cc/CKJ0sBXT/Screenshot-2024-10-10-204041.png)
+![dataset](https://github.com/user-attachments/assets/b4871b66-9877-4dca-8c97-6e0593668e75)
 Informasi dataset dapat dilihat pada **Tabel 1. Informasi dataset** dibawah ini :
 Jenis | Keterangan
 --- | ---
